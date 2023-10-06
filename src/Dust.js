@@ -18,8 +18,8 @@ function Dust({
     date,
     pm10val,
     pm10gr,
-    pm25val,
-    pm25gr,
+    // pm25val,
+    // pm25gr,
     o3val,
     o3gr,
     coval,
@@ -37,11 +37,11 @@ function Dust({
                 <br />
                 grade: <Grade grade={pm10gr} />
             </p>
-            <p className="25">
+            {/* <p className="25">
                 PM25 : <b>{pm25val}</b>μg/m³
                 <br />
                 grade: <Grade grade={pm25gr} />
-            </p>
+            </p> */}
             <div className="flex">
                 <p>
                     오존
