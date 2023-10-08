@@ -3,6 +3,7 @@ import Dust from "./Dust";
 import { Tmp, Sky, Pty } from "./Weather";
 import axios from "axios";
 import moment from "moment/moment";
+import { selectBOX } from "./selectBOX";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -25,12 +26,34 @@ function App() {
         "2300",
     ];
     const [baseTime, setBaseTime] = useState([]);
-    console.log(time);
+    const [x, setX] = useState("55");
+    const [y, setY] = useState("127");
 
-    const weatherUrl = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${API_KEY}&numOfRows=10&pageNo=1&base_date=${today}&base_time=${baseTime}&nx=62&ny=126&dataType=json`;
+    const weatherUrl = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${API_KEY}&numOfRows=10&pageNo=1&base_date=${today}&base_time=${baseTime}&nx=55&ny=127&dataType=json`;
     const dustUrl = `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=송파구&dataTerm=daily&pageNo=1&numOfRows=1&returnType=json&serviceKey=${API_KEY}&ver=1.33`;
 
     useEffect(() => {
+        // selectBOX();
+
+        if (Number(time) > 2310) {
+            setBaseTime(base_time_list[7]);
+        } else if (Number(time) > 2010) {
+            setBaseTime(base_time_list[6]);
+        } else if (Number(time) > 1710) {
+            setBaseTime(base_time_list[5]);
+        } else if (Number(time) > 1410) {
+            setBaseTime(base_time_list[4]);
+        } else if (Number(time) > 1110) {
+            setBaseTime(base_time_list[3]);
+        } else if (Number(time) > 810) {
+            setBaseTime(base_time_list[2]);
+        } else if (Number(time) > 510) {
+            setBaseTime(base_time_list[1]);
+        } else if (Number(time) > 210) {
+            setBaseTime(base_time_list[0]);
+        }
+        console.log(baseTime);
+
         axios
             .get(weatherUrl)
             .then((res) => {
@@ -57,32 +80,39 @@ function App() {
                 console.log("미세먼지 실패");
                 console.log(dustUrl);
             });
-    }, []);
-
-    useEffect(() => {
-        if (Number(time) > 210) {
-            setBaseTime(base_time_list[7]);
-        } else if (Number(time) > 510) {
-            setBaseTime(base_time_list[6]);
-        } else if (Number(time) > 810) {
-            setBaseTime(base_time_list[5]);
-        } else if (Number(time) > 1110) {
-            setBaseTime(base_time_list[4]);
-        } else if (Number(time) > 1410) {
-            setBaseTime(base_time_list[3]);
-        } else if (Number(time) > 1710) {
-            setBaseTime(base_time_list[2]);
-        } else if (Number(time) > 2010) {
-            setBaseTime(base_time_list[1]);
-        } else if (Number(time) > 2310) {
-            setBaseTime(base_time_list[0]);
-        }
-    }, []);
+    }, [baseTime]);
 
     // const clickHandler = (params, e) => {
     //     e.preventDefault();
     //     setClickSigun(params);
     // };
+
+    const selectBox = [
+        { x: "60", y: "127", name: "서울" },
+        { x: "98", y: "76", name: "부산" },
+        { x: "89", y: "90", name: "대구" },
+    ];
+
+    const handleChange = (e) => {
+        // event handler
+        console.log(e.target.dataset.x);
+    };
+    const SelectBox = (props) => {
+        return (
+            <select onChange={handleChange}>
+                {props.options.map((option) => (
+                    <option
+                        key={option.name}
+                        value={option.name}
+                        data-y={option.y}
+                        defaultValue={props.name === option.name}
+                    >
+                        {option.name}
+                    </option>
+                ))}
+            </select>
+        );
+    };
 
     return (
         <section className="container">
@@ -93,6 +123,22 @@ function App() {
             ) : (
                 <div className="hosp">
                     <div className="dustInfo">
+                        <div>
+                            {/* <select name="sido1" id="sido1"></select>
+                            <select name="gugun1" id="gugun1"></select> */}
+                            {/* <SelectBox options={selectBox}  /> */}
+                            <select value={selectBox} onChange={handleChange}>
+                                {selectBox.map((item) => (
+                                    <option
+                                        value={item.name}
+                                        key={item.name}
+                                        data-x={item.x}
+                                    >
+                                        {item.name}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                         <Dust
                             date={dust.dataTime}
                             pm10val={dust.pm10Value}
