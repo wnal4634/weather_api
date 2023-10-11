@@ -1,0 +1,52 @@
+#OUTLINE {
+    stroke-linejoin: round;
+    stroke: #ffffff;
+    stroke-width: 1;
+}
+
+.fill {
+    fill: rgb(191, 191, 191);
+    transition: 0.2s;
+}
+svg text {
+    /* display: none; */
+    text-shadow: 0 0 7px black;
+}
+svg g:hover text {
+    display: block;
+    cursor: pointer;
+    transition: 0.3s;
+}
+svg g:hover path {
+    fill: rgb(110, 110, 110);
+    transition: 0.2s;
+    cursor: pointer;
+}
+svg {
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.3));
+}
+
+.LINE {
+    stroke-linejoin: round;
+    stroke: #ffffff;
+    stroke-width: 1;
+    fill: none;
+}
+
+.POINT {
+    stroke: #ffffff;
+    stroke-width: 1;
+    fill: #ffffff;
+}
+
+.TEXT {
+    fill: #ffffff;
+    font-size: 16px;
+    text-anchor: middle;
+    alignment-baseline: middle;
+    opacity: 1;
+}
+
+.TEXT:hover {
+    opacity: 1;
+}

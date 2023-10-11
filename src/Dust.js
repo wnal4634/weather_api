@@ -1,7 +1,6 @@
 import React from "react";
 
 function Grade({ grade }) {
-    console.log({ grade });
     switch (grade) {
         case "1":
             return <b style={{ color: "blue" }}>좋음!</b>;
@@ -18,8 +17,6 @@ function Dust({
     date,
     pm10val,
     pm10gr,
-    // pm25val,
-    // pm25gr,
     o3val,
     o3gr,
     coval,
@@ -27,7 +24,6 @@ function Dust({
     no2val,
     no2gr,
 }) {
-    // console.log(id);
     return (
         <div className="Dust">
             <h3>송파구의 현재 대기질 현황: </h3>
@@ -37,11 +33,6 @@ function Dust({
                 <br />
                 grade: <Grade grade={pm10gr} />
             </p>
-            {/* <p className="25">
-                PM25 : <b>{pm25val}</b>μg/m³
-                <br />
-                grade: <Grade grade={pm25gr} />
-            </p> */}
             <div className="flex">
                 <p>
                     오존
