@@ -26,35 +26,40 @@ function Dust({
 }) {
     return (
         <div className="Dust">
-            <h3>송파구의 현재 대기질 현황: </h3>
-            <div className="date">측정일시 : {date}</div>
-            <p className="10">
+            {/* <div className="date value">
+                미세먼지 측정일시
+                <hr />
+                {date}
+            </div> */}
+            <div className="value">
+                미세먼지
+                <hr />
                 PM10 : <b>{pm10val}</b>μg/m³
                 <br />
                 grade: <Grade grade={pm10gr} />
-            </p>
-            <div className="flex">
-                <p>
+            </div>
+            <div className="value">
+                <div>
                     오존
                     <br />
                     {o3val}ppm
                     <br />
                     <Grade grade={o3gr} />
-                </p>
-                <p>
+                </div>
+                <div>
                     일산화탄소
                     <br />
                     {coval}ppm
                     <br />
                     <Grade grade={cogr} />
-                </p>
-                <p>
+                </div>
+                <div>
                     이산화질소
                     <br />
                     {no2val}ppm
                     <br />
                     <Grade grade={no2gr} />
-                </p>
+                </div>
             </div>
         </div>
     );

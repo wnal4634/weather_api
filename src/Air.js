@@ -84,16 +84,26 @@ const Air = (props) => {
     };
 
     return (
-        <>
-            <Seoul setCoordData={getData} />
+        <div className="all">
             <section className="container">
+                <Seoul setCoordData={getData} />
                 {loading ? (
                     <div className="loader">
-                        <span className="loader_text">Loading...</span>
+                        <span className="loader_text">
+                            행정구를 선택해주세요!
+                        </span>
                     </div>
                 ) : (
-                    <div className="hosp">
-                        <div className="dustInfo">
+                    <div>
+                        <h3>오늘 {si}의 하늘 !</h3>
+                        <div className="wt_wrap">
+                            {/* {weather.map((wea) => ( */}
+                            <Tmp fcstValue={tmp.fcstValue} />
+                            <Sky fcstValue={sky.fcstValue} />
+                            <Pty fcstValue={pty.fcstValue} />
+                            {/* ))} */}
+                        </div>
+                        <div className="dust_wrap">
                             <Dust
                                 date={dust.dataTime}
                                 pm10val={dust.pm10Value}
@@ -106,28 +116,10 @@ const Air = (props) => {
                                 no2gr={dust.no2Grade}
                             />
                         </div>
-                        <div className="hosp_info">
-                            {/* {weather.map((wea) => ( */}
-                            <Tmp
-                                fcstDate={tmp.fcstDate}
-                                fcstTime={tmp.fcstTime}
-                                category={tmp.category}
-                                fcstValue={tmp.fcstValue}
-                            />
-                            <Sky
-                                category={sky.category}
-                                fcstValue={sky.fcstValue}
-                            />
-                            <Pty
-                                category={pty.category}
-                                fcstValue={pty.fcstValue}
-                            />
-                            {/* ))} */}
-                        </div>
                     </div>
                 )}
             </section>
-        </>
+        </div>
     );
 };
 

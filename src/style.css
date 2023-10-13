@@ -1,16 +1,20 @@
+body {
+    background-color: #efefef;
+}
+
+/* Seoul.js */
 #OUTLINE {
     stroke-linejoin: round;
     stroke: #ffffff;
     stroke-width: 1;
 }
-
 .fill {
-    fill: rgb(191, 191, 191);
+    fill: rgb(215, 215, 215);
     transition: 0.2s;
 }
 svg text {
     /* display: none; */
-    text-shadow: 0 0 7px black;
+    text-shadow: 0 0 5px black;
 }
 svg g:hover text {
     display: block;
@@ -18,27 +22,24 @@ svg g:hover text {
     transition: 0.3s;
 }
 svg g:hover path {
-    fill: rgb(110, 110, 110);
+    fill: rgb(164, 164, 164);
     transition: 0.2s;
     cursor: pointer;
 }
 svg {
-    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.2));
 }
-
 .LINE {
     stroke-linejoin: round;
     stroke: #ffffff;
     stroke-width: 1;
     fill: none;
 }
-
 .POINT {
     stroke: #ffffff;
     stroke-width: 1;
     fill: #ffffff;
 }
-
 .TEXT {
     fill: #ffffff;
     font-size: 16px;
@@ -46,7 +47,35 @@ svg {
     alignment-baseline: middle;
     opacity: 1;
 }
-
 .TEXT:hover {
     opacity: 1;
 }
+
+/* Air.js */
+.all {
+    display: flex;
+}
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+.wt_wrap {
+    margin-bottom: 50px;
+}
+.wt_wrap div {
+    margin-bottom: 10px;
+}
+.dust_wrap div {
+    margin-bottom: 10px;
+}
+
+/* Dust.js */
+.value {
+    background-color: #fff;
+    border-radius: 15px;
+    /* filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1)); */
+    padding: 10px 12px;
+}
+
+/* Weather.js */
