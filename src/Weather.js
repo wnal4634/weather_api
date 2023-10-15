@@ -56,24 +56,35 @@ function Pty({ fcstValue }) {
     }
 }
 
+const recClothes = (val) => {
+    if (val >= 28) {
+        return <>민소매, 반팔, 반바지, 원피스</>;
+    } else if (val >= 23) {
+        return <>반팔, 얇은 셔츠, 반바지, 면바지</>;
+    } else if (val >= 20) {
+        return <>얇은 카디건, 긴팔, 면바지, 청바지</>;
+    } else if (val >= 17) {
+        return <>얇은 니트, 맨투맨, 카디건, 청바지</>;
+    } else if (val >= 12) {
+        return <>재킷, 카디건, 청바지, 면바지, 스타킹</>;
+    } else if (val >= 9) {
+        return <>재킷, 트렌치코트, 니트, 청바지, 스타킹</>;
+    } else if (val >= 5) {
+        return <>트, 가죽 재킷, 히트텍, 니트, 레깅스</>;
+    } else {
+        return <>패딩, 두꺼운 코트, 목도리, 기모 제품</>;
+    }
+};
+
 function Tmp({ fcstValue }) {
-    const today = new Date();
-    const formattedDate = `${today.getFullYear()}년 ${
-        today.getMonth() + 1
-    }월 ${today.getDate()}일`;
-    // console.log(id);
     return (
         <div className="Weather">
-            {/* <div className="date value">
-                날씨 예보일자
-                <br />
-                {formattedDate}
-            </div> */}
             <div className="value">
                 기온
                 <br />
                 {fcstValue}°C
             </div>
+            <div className="value">{recClothes(fcstValue)}</div>
         </div>
     );
 }

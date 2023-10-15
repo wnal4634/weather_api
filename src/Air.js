@@ -60,9 +60,8 @@ const Air = (props) => {
                 setLoading(false);
             })
             .catch((e) => {
-                //날씨실패문제있음(좌표주고부터 생김)
-                console.log("날씨 실패");
-                console.log(weatherUrl);
+                // console.log("날씨 실패");
+                // console.log(weatherUrl);
             });
 
         axios
@@ -72,8 +71,8 @@ const Air = (props) => {
                 setLoading(false);
             })
             .catch((e) => {
-                console.log("미세먼지 실패");
-                console.log(dustUrl);
+                // console.log("미세먼지 실패");
+                // console.log(dustUrl);
             });
     }, [baseTime, si]);
 
@@ -95,7 +94,7 @@ const Air = (props) => {
                     </div>
                 ) : (
                     <div>
-                        <h3>오늘 {si}의 하늘 !</h3>
+                        <h3>지금 {si}의 하늘 !</h3>
                         <div className="wt_wrap">
                             {/* {weather.map((wea) => ( */}
                             <Tmp fcstValue={tmp.fcstValue} />

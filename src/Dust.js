@@ -7,30 +7,27 @@ function Grade({ grade }) {
         case "2":
             return <b style={{ color: "green" }}>보통</b>;
         case "3":
-            return <b style={{ color: "orange" }}>나쁨!</b>;
+            return (
+                <b style={{ color: "orange" }}>
+                    나쁨!
+                    <br />
+                    마스크를 쓰는 게 좋아 보여요
+                </b>
+            );
         case "4":
-            return <b style={{ color: "red" }}>매우 나쁨!!</b>;
+            return (
+                <b style={{ color: "red" }}>
+                    매우 나쁨!!
+                    <br />
+                    마스크를 써야 해요
+                </b>
+            );
     }
 }
 
-function Dust({
-    date,
-    pm10val,
-    pm10gr,
-    o3val,
-    o3gr,
-    coval,
-    cogr,
-    no2val,
-    no2gr,
-}) {
+function Dust({ pm10val, pm10gr, o3val, o3gr, coval, cogr, no2val, no2gr }) {
     return (
         <div className="Dust">
-            {/* <div className="date value">
-                미세먼지 측정일시
-                <hr />
-                {date}
-            </div> */}
             <div className="value">
                 미세먼지
                 <hr />
