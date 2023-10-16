@@ -4,21 +4,27 @@ function Sky({ fcstValue }) {
     switch (fcstValue) {
         case "1":
             return (
-                <div style={{ color: "blue" }} className="value">
+                <b
+                    style={{ color: "cornflowerblue" }}
+                    className="value weather"
+                >
+                    <div className="sky">오늘 하늘은</div>
                     맑음
-                </div>
+                </b>
             );
         case "3":
             return (
-                <div style={{ color: "orange" }} className="value">
+                <b style={{ color: "slategray" }} className="value weather">
+                    <div className="sky">오늘 하늘은</div>
                     구름많음
-                </div>
+                </b>
             );
         case "4":
             return (
-                <div style={{ color: "red" }} className="value">
+                <b style={{ color: "darkslateblue" }} className="value weather">
+                    <div className="sky">오늘 하늘은</div>
                     흐림
-                </div>
+                </b>
             );
     }
 }
@@ -27,30 +33,38 @@ function Pty({ fcstValue }) {
     switch (fcstValue) {
         case "0":
             return (
-                <div className="value">
-                    날씨가 좋네요. 눈이나 비는 오지 않아요. ☀
+                <div className="value weather">
+                    <div className="title">무엇을 챙기는 게 좋을까?</div>
+                    날씨가 좋아 챙길 게 없어요. 눈이나 비가 오지 않아요. ☀
                 </div>
             );
         case "1":
             return (
-                <div className="value">비가 와요. 우산을 꼭 챙겨주세요! ☂</div>
+                <div className="value weather">
+                    <div className="title">무엇을 챙기는 게 좋을까?</div>
+                    비가 와요. 우산을 꼭 챙겨주세요! ☂
+                </div>
             );
         case "2":
             return (
-                <div className="value">
-                    비 또는 눈이 와요. 쌀쌀하니 따뜻하게 입어요! 우산도 꼭
-                    챙겨주세요! ☂❄
+                <div className="value weather">
+                    <div className="title">무엇을 챙기는 게 좋을까?</div>비 또는
+                    눈이 와요. 쌀쌀하니 따뜻하게 입어요! 우산도 꼭 챙겨주세요!
+                    ☂❄
                 </div>
             );
         case "3":
             return (
-                <div className="value">눈이 와요. 장갑을 꼭 챙기세요! ❄</div>
+                <div className="value weather">
+                    <div className="title">무엇을 챙기는 게 좋을까?</div>
+                    눈이 와요. 장갑을 꼭 챙기세요! ❄
+                </div>
             );
         case "4":
             return (
-                <div className="value">
-                    소나기가 와요. 비가 언제 올지 모르니, 우산을 꼭 챙겨주세요!
-                    ☂
+                <div className="value weather">
+                    <div className="title">무엇을 챙기는 게 좋을까?</div>
+                    소나기가 와요. 비가 언제 올지 모르니, 우산을 챙겨주세요! ☂
                 </div>
             );
     }
@@ -79,12 +93,16 @@ const recClothes = (val) => {
 function Tmp({ fcstValue }) {
     return (
         <div className="Weather">
-            <div className="value">
-                기온
-                <br />
+            <div className="value weather">
+                <div className="title">기온</div>
                 {fcstValue}°C
             </div>
-            <div className="value">{recClothes(fcstValue)}</div>
+            <div className="value weather">
+                <div className="title">
+                    이 날씨에는 이런 옷을 입으면 좋아요!
+                </div>
+                {recClothes(fcstValue)}
+            </div>
         </div>
     );
 }
