@@ -13,52 +13,75 @@ function Grade({ grade }) {
     }
 }
 
-function Mask({ val }) {
-    switch (val) {
+// function Mask({ grade }) {
+//     switch (grade) {
+//         case "1":
+//             <div className="value dust">ffff</div>;
+//         case "2":
+//             <div className="value dust">asdf</div>;
+//         case "3":
+//             return (
+//                 <div className="value dust">마스크를 쓰는 게 좋아 보여요</div>
+//             );
+//         case "4":
+//             return <div className="value dust">마스크를 써야 해요</div>;
+//     }
+// }
+
+function Mask({ mask }) {
+    switch (mask) {
         case "1":
-            <div className="value dust">마스크를 쓰는 게 좋아 보여요</div>;
+            // return <div className="value dust tail">좋음!</div>;
+            return null;
         case "2":
-            <div className="value dust">마스크를 쓰는 게 좋아 보여요</div>;
+            // return <div className="value dust tail">보통</div>;
+            return null;
         case "3":
-            return <div>마스크를 쓰는 게 좋아 보여요</div>;
+            return (
+                <div className="value dust tail">
+                    마스크를 쓰는 게 좋아 보여요
+                </div>
+            );
         case "4":
-            return <div>마스크를 써야 해요</div>;
+            return <div className="value dust tail">마스크를 써야 해요</div>;
     }
 }
 
 function Dust({ pm10val, pm10gr, o3val, o3gr, coval, cogr, no2val, no2gr }) {
     return (
-        <div className="Dust">
-            <div className="row">
-                <div className="value dust">
-                    <div className="title">미세먼지 PM10</div>
-                    <b>{pm10val}</b>μg/m³
-                    <br />
-                    grade: <Grade grade={pm10gr} />
+        <>
+            <div className="Dust">
+                <div className="col right">
+                    <div className="value dust">
+                        <div className="title tail">미세먼지 PM10</div>
+                        {pm10val}μg/m³
+                        <br />
+                        <Grade grade={pm10gr} />
+                    </div>
+                    <div className="value dust">
+                        <div className="title">일산화탄소</div>
+                        {coval}ppm
+                        <br />
+                        <Grade grade={cogr} />
+                    </div>
                 </div>
-                <div className="value dust">
-                    <div className="title">오존</div>
-                    {o3val}ppm
-                    <br />
-                    <Grade grade={o3gr} />
+                <div className="col">
+                    <div className="value dust">
+                        <div className="title">오존</div>
+                        {o3val}ppm
+                        <br />
+                        <Grade grade={o3gr} />
+                    </div>
+                    <div className="value dust">
+                        <div className="title">이산화질소</div>
+                        {no2val}ppm
+                        <br />
+                        <Grade grade={no2gr} />
+                    </div>
                 </div>
             </div>
-            <div>
-                <div className="value dust">
-                    <div className="title">일산화탄소</div>
-                    {coval}ppm
-                    <br />
-                    <Grade grade={cogr} />
-                </div>
-                <div className="value dust">
-                    <div className="title">이산화질소</div>
-                    {no2val}ppm
-                    <br />
-                    <Grade grade={no2gr} />
-                </div>
-            </div>
-            <Mask val={pm10gr} />
-        </div>
+            <Mask mask={pm10gr} />
+        </>
     );
 }
 

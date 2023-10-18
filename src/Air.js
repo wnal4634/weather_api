@@ -88,17 +88,16 @@ const Air = (props) => {
                 <Seoul setCoordData={getData} />
                 {loading ? (
                     <div className="loader">
-                        <span className="loader_text">
-                            행정구를 선택해주세요!
-                        </span>
+                        <h2 className="loader_text">행정구를 선택해주세요 !</h2>
                     </div>
                 ) : (
                     <div>
-                        <h3>지금 {si}의 하늘 !</h3>
+                        <h2>지금 {si}의 하늘 !</h2>
                         <div className="wt_wrap">
                             {/* {weather.map((wea) => ( */}
                             <Tmp fcstValue={tmp.fcstValue} />
                             <Sky fcstValue={sky.fcstValue} />
+                            <br />
                             <Pty fcstValue={pty.fcstValue} />
                             {/* ))} */}
                         </div>

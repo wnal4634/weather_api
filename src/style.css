@@ -9,6 +9,7 @@
 body {
     background-color: #f8f8f8;
     font-family: "Pretendard-Regular";
+    padding-top: 30px;
 }
 
 /* Seoul.js */
@@ -36,7 +37,7 @@ svg g:hover path {
     cursor: pointer;
 }
 svg {
-    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
 }
 .LINE {
     stroke-linejoin: round;
@@ -78,14 +79,24 @@ svg {
 .dust_wrap div {
     margin-bottom: 10px;
 } */
+.loader {
+    margin: auto 0;
+}
 
 /* Dust.js */
 .Dust {
     display: flex;
-    flex-direction: column;
-}
-.row {
     flex-direction: row;
+    justify-content: space-between;
+}
+.col {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 50%;
+}
+.right {
+    margin-right: 10px;
 }
 .value {
     background-color: #fff;
@@ -95,7 +106,17 @@ svg {
 }
 .dust {
     display: inline-block;
-    margin: 0 10px 10px 0;
+    margin-bottom: 10px;
+}
+.tail:after {
+    border-top: 7px solid transparent;
+    border-left: 0px solid transparent;
+    border-right: 10px solid #fff;
+    border-bottom: 7px solid transparent;
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -10px;
 }
 
 /* Weather.js */
@@ -114,4 +135,7 @@ svg {
     margin-right: 5px;
     font-weight: 500;
     color: black;
+}
+.rec {
+    margin-left: 10px;
 }
