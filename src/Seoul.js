@@ -33,10 +33,10 @@ const Seoul = (props) => {
     return (
         <div>
             <svg
-                height="574"
-                width="700"
+                height="492"
+                width="600"
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="80 30 700 600"
+                viewBox="80 30 670 590"
             >
                 <g
                     onClick={(e) => {

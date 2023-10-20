@@ -10,6 +10,8 @@ function Grade({ grade }) {
             return <b style={{ color: "orange" }}>나쁨!</b>;
         case "4":
             return <b style={{ color: "red" }}>매우 나쁨!!</b>;
+        default:
+            return <b>-</b>;
     }
 }
 
@@ -31,19 +33,21 @@ function Grade({ grade }) {
 function Mask({ mask }) {
     switch (mask) {
         case "1":
-            // return <div className="value dust tail">좋음!</div>;
+            // return <div className="value dust mask tail">좋음!</div>;
             return null;
         case "2":
-            // return <div className="value dust tail">보통</div>;
+            // return <div className="value dust mask tail">보통</div>;
             return null;
         case "3":
             return (
-                <div className="value dust tail">
+                <div className="value dust mask tail">
                     마스크를 쓰는 게 좋아 보여요
                 </div>
             );
         case "4":
-            return <div className="value dust tail">마스크를 써야 해요</div>;
+            return (
+                <div className="value mask dust tail">마스크를 써야 해요</div>
+            );
     }
 }
 

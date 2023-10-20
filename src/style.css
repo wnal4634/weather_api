@@ -9,7 +9,11 @@
 body {
     background-color: #f8f8f8;
     font-family: "Pretendard-Regular";
-    padding-top: 30px;
+    margin: 0;
+    /* padding-top: 30px; */
+}
+h2 {
+    margin: 0 0 20px 0;
 }
 
 /* Seoul.js */
@@ -37,7 +41,7 @@ svg g:hover path {
     cursor: pointer;
 }
 svg {
-    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.15));
 }
 .LINE {
     stroke-linejoin: round;
@@ -64,21 +68,19 @@ svg {
 /* Air.js */
 .all {
     display: flex;
+    height: 100vh;
+    align-items: center;
+    transform: translate(-1%, -1%);
 }
 .container {
     margin: 0 auto;
     display: flex;
+    align-items: center;
     flex-direction: row;
 }
 .wt_wrap {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
-/* .wt_wrap div {
-    margin-bottom: 10px;
-}
-.dust_wrap div {
-    margin-bottom: 10px;
-} */
 .loader {
     margin: auto 0;
 }
@@ -92,8 +94,10 @@ svg {
 .col {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
     width: 50%;
+}
+.col div:first-child {
+    margin-bottom: 10px;
 }
 .right {
     margin-right: 10px;
@@ -106,7 +110,9 @@ svg {
 }
 .dust {
     display: inline-block;
-    margin-bottom: 10px;
+}
+.mask {
+    margin-top: 10px;
 }
 .tail:after {
     border-top: 7px solid transparent;
@@ -116,7 +122,17 @@ svg {
     content: "";
     position: absolute;
     top: 15px;
-    left: -10px;
+    left: -9px;
+}
+.tail_big:after {
+    border-top: 10px solid transparent;
+    border-left: 0px solid transparent;
+    border-right: 15px solid #fff;
+    border-bottom: 10px solid transparent;
+    content: "";
+    position: absolute;
+    top: 19px;
+    left: -14px;
 }
 
 /* Weather.js */

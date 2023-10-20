@@ -84,7 +84,7 @@ const recClothes = (val) => {
     } else if (val >= 9) {
         return <>재킷, 트렌치코트, 니트, 청바지, 스타킹</>;
     } else if (val >= 5) {
-        return <>트, 가죽 재킷, 히트텍, 니트, 레깅스</>;
+        return <>코트, 가죽 재킷, 히트텍, 니트, 레깅스</>;
     } else {
         return <>패딩, 두꺼운 코트, 목도리, 기모 제품</>;
     }
