@@ -4,6 +4,7 @@ import { Tmp, Sky, Pty } from "Weather";
 import axios from "axios";
 import moment from "moment/moment";
 import Seoul from "Seoul";
+import License from "License";
 
 const Air = (props) => {
     const [loading, setLoading] = useState(true);
@@ -87,38 +88,41 @@ const Air = (props) => {
             <section className="container">
                 <Seoul setCoordData={getData} />
                 {loading ? (
-                    <div className="loader">
-                        <h2 className="loader_text value tail_big">
-                            행정구를 선택해주세요 !
-                        </h2>
-                    </div>
+                    <h2 className="loader value tail_big">
+                        행정구를 선택해주세요 !
+                    </h2>
                 ) : (
-                    <div>
-                        <h2>
-                            {time.slice(0, 2)}시 지금 {si}의 하늘 !
-                        </h2>
-                        <div className="wt_wrap">
-                            {/* {weather.map((wea) => ( */}
-                            <Tmp fcstValue={tmp.fcstValue} />
-                            <Sky fcstValue={sky.fcstValue} />
-                            <br />
-                            <Pty fcstValue={pty.fcstValue} />
-                            {/* ))} */}
+                    <>
+                        <div className="tblt_margin">
+                            <h2>
+                                {time.slice(0, 2)}시 지금 {si}의 하늘 !
+                            </h2>
+                            <div className="wt_wrap">
+                                {/* {weather.map((wea) => ( */}
+                                <Tmp fcstValue={tmp.fcstValue} />
+                                <Sky fcstValue={sky.fcstValue} />
+                                <br />
+                                <Pty fcstValue={pty.fcstValue} />
+                                {/* ))} */}
+                            </div>
+                            <div className="dust_wrap">
+                                <Dust
+                                    date={dust.dataTime}
+                                    pm10val={dust.pm10Value}
+                                    pm10gr={dust.pm10Grade}
+                                    pm25val={dust.pm25Value}
+                                    pm25gr={dust.pm25Grade}
+                                    o3val={dust.o3Value}
+                                    o3gr={dust.o3Grade}
+                                    coval={dust.coValue}
+                                    cogr={dust.coGrade}
+                                    no2val={dust.no2Value}
+                                    no2gr={dust.no2Grade}
+                                />
+                            </div>
                         </div>
-                        <div className="dust_wrap">
-                            <Dust
-                                date={dust.dataTime}
-                                pm10val={dust.pm10Value}
-                                pm10gr={dust.pm10Grade}
-                                o3val={dust.o3Value}
-                                o3gr={dust.o3Grade}
-                                coval={dust.coValue}
-                                cogr={dust.coGrade}
-                                no2val={dust.no2Value}
-                                no2gr={dust.no2Grade}
-                            />
-                        </div>
-                    </div>
+                        <License />
+                    </>
                 )}
             </section>
         </div>

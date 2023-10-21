@@ -15,21 +15,6 @@ function Grade({ grade }) {
     }
 }
 
-// function Mask({ grade }) {
-//     switch (grade) {
-//         case "1":
-//             <div className="value dust">ffff</div>;
-//         case "2":
-//             <div className="value dust">asdf</div>;
-//         case "3":
-//             return (
-//                 <div className="value dust">마스크를 쓰는 게 좋아 보여요</div>
-//             );
-//         case "4":
-//             return <div className="value dust">마스크를 써야 해요</div>;
-//     }
-// }
-
 function Mask({ mask }) {
     switch (mask) {
         case "1":
@@ -51,7 +36,18 @@ function Mask({ mask }) {
     }
 }
 
-function Dust({ pm10val, pm10gr, o3val, o3gr, coval, cogr, no2val, no2gr }) {
+function Dust({
+    pm10val,
+    pm10gr,
+    pm25val,
+    pm25gr,
+    o3val,
+    o3gr,
+    coval,
+    cogr,
+    no2val,
+    no2gr,
+}) {
     return (
         <>
             <div className="Dust">
@@ -63,14 +59,6 @@ function Dust({ pm10val, pm10gr, o3val, o3gr, coval, cogr, no2val, no2gr }) {
                         <Grade grade={pm10gr} />
                     </div>
                     <div className="value dust">
-                        <div className="title">일산화탄소</div>
-                        {coval}ppm
-                        <br />
-                        <Grade grade={cogr} />
-                    </div>
-                </div>
-                <div className="col">
-                    <div className="value dust">
                         <div className="title">오존</div>
                         {o3val}ppm
                         <br />
@@ -81,6 +69,20 @@ function Dust({ pm10val, pm10gr, o3val, o3gr, coval, cogr, no2val, no2gr }) {
                         {no2val}ppm
                         <br />
                         <Grade grade={no2gr} />
+                    </div>
+                </div>
+                <div className="col">
+                    <div className="value dust">
+                        <div className="title">초미세먼지 PM25</div>
+                        {pm25val}μg/m³
+                        <br />
+                        <Grade grade={pm25gr} />
+                    </div>
+                    <div className="value dust">
+                        <div className="title">일산화탄소</div>
+                        {coval}ppm
+                        <br />
+                        <Grade grade={cogr} />
                     </div>
                 </div>
             </div>
