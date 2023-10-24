@@ -35,29 +35,28 @@ function Pty({ fcstValue }) {
             return (
                 <div className="value weather">
                     <div className="title tail">무엇을 챙기는 게 좋을까?</div>
-                    날씨가 좋아 챙길 게 없어요. 눈이나 비가 오지 않아요. ☀
+                    날씨가 좋아 우산은 필요 없어요. 눈 또는 비가 오지 않아요. ☀
                 </div>
             );
         case "1":
             return (
                 <div className="value weather">
                     <div className="title tail">무엇을 챙기는 게 좋을까?</div>
-                    비가 와요. 우산을 꼭 챙겨주세요! ☂
+                    비가 와요. 우산을 챙겨주세요! ☂
                 </div>
             );
         case "2":
             return (
                 <div className="value weather">
                     <div className="title tail">무엇을 챙기는 게 좋을까?</div>비
-                    또는 눈이 와요. 쌀쌀하니 따뜻하게 입어요! 우산도 꼭
-                    챙겨주세요! ☂❄
+                    또는 눈이 와요. 우산을 챙겨주세요! ☂❄
                 </div>
             );
         case "3":
             return (
                 <div className="value weather">
                     <div className="title tail">무엇을 챙기는 게 좋을까?</div>
-                    눈이 와요. 장갑을 꼭 챙기세요! ❄
+                    눈이 와요. 따뜻한 겉옷과 장갑을 챙기세요! ❄
                 </div>
             );
         case "4":

@@ -9,7 +9,7 @@ function Grade({ grade }) {
         case "3":
             return <b style={{ color: "orange" }}>나쁨!</b>;
         case "4":
-            return <b style={{ color: "red" }}>매우 나쁨!!</b>;
+            return <b style={{ color: "red" }}>매우 나쁨!</b>;
         default:
             return <b>-</b>;
     }
