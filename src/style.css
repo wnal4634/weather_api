@@ -119,6 +119,11 @@ svg {
     margin-left: 10px;
 }
 
+/* License.js */
+.lic_img {
+    height: 30px;
+}
+
 @media all and (min-width: 1024px) {
     /* 데스크탑 */
     .all {
@@ -155,13 +160,17 @@ svg {
         left: -14px;
     }
     .license {
+        display: flex;
         position: absolute;
+        width: 100%;
         bottom: 0;
-        left: 50%;
-        font-size: 14px;
+        font-size: 12px;
         color: rgba(0, 0, 0, 0.2);
-        text-align: center;
-        transform: translateX(-50%);
+        justify-content: center;
+    }
+    .license div:first-child {
+        margin-right: 10px;
+        align-self: end;
     }
 }
 
@@ -196,9 +205,12 @@ svg {
     .license {
         width: 100%;
         left: 50%;
-        font-size: 14px;
+        font-size: 12px;
         color: rgba(0, 0, 0, 0.2);
         text-align: center;
         margin: 50px 0 20px;
+    }
+    .license div:first-child {
+        margin-bottom: 5px;
     }
 }
