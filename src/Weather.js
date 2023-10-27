@@ -1,7 +1,9 @@
 import React from "react";
 
 function Sky({ fcstValue }) {
-    switch (fcstValue) {
+    switch (
+        fcstValue //받은 정보에 따라 상태를 알려줌
+    ) {
         case "1":
             return (
                 <b
@@ -30,7 +32,9 @@ function Sky({ fcstValue }) {
 }
 
 function Pty({ fcstValue }) {
-    switch (fcstValue) {
+    switch (
+        fcstValue //받은 정보에 따라 상태를 알려줌
+    ) {
         case "0":
             return (
                 <div className="value weather">
@@ -70,6 +74,7 @@ function Pty({ fcstValue }) {
 }
 
 const recClothes = (val) => {
+    //받은 정보에 따라 상태를 알려줌.
     if (val >= 28) {
         return <>민소매, 반팔, 반바지, 원피스</>;
     } else if (val >= 23) {

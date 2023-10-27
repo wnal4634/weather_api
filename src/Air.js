@@ -34,6 +34,7 @@ const Air = (props) => {
     const dustUrl = `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=${si}&dataTerm=daily&pageNo=1&numOfRows=1&returnType=json&serviceKey=${API_KEY}&ver=1.33`;
 
     useEffect(() => {
+        //현재 시간에 따라 날씨 정보를 주는 가장 가까운 basetime 지정. API URL에 사용.
         if (Number(time) > 2310) {
             setBaseTime(base_time_list[7]);
         } else if (Number(time) > 2010) {
@@ -52,7 +53,7 @@ const Air = (props) => {
             setBaseTime(base_time_list[0]);
         }
 
-        axios
+        axios //HTTP 요청(날씨)
             .get(weatherUrl)
             .then((res) => {
                 setTmp(res.data.response.body.items.item[0]);
@@ -65,7 +66,7 @@ const Air = (props) => {
                 // console.log(weatherUrl);
             });
 
-        axios
+        axios //HTTP 요청(미세먼지)
             .get(dustUrl)
             .then((res) => {
                 setDust(res.data.response.body.items[0]);
@@ -78,6 +79,7 @@ const Air = (props) => {
     }, [baseTime, si]);
 
     const getData = (props) => {
+        //클릭한 행정구 정보 저장. 이후 URL로 전달해 해당하는 행정구의 정보 보여줌.
         setX(props.x);
         setY(props.y);
         setSi(props.name);
@@ -98,12 +100,10 @@ const Air = (props) => {
                                 {time.slice(0, 2)}시 지금 {si}의 하늘 !
                             </h2>
                             <div className="wt_wrap">
-                                {/* {weather.map((wea) => ( */}
                                 <Tmp fcstValue={tmp.fcstValue} />
                                 <Sky fcstValue={sky.fcstValue} />
                                 <br />
                                 <Pty fcstValue={pty.fcstValue} />
-                                {/* ))} */}
                             </div>
                             <div className="dust_wrap">
                                 <Dust

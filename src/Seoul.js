@@ -3,6 +3,7 @@ import "style.css";
 
 const Seoul = (props) => {
     const coord = [
+        //행정구별 x, y좌표 정보.
         { x: "60", y: "127", name: "종로구" },
         { x: "60", y: "127", name: "중구" },
         { x: "60", y: "126", name: "용산구" },
@@ -32,7 +33,7 @@ const Seoul = (props) => {
 
     return (
         <div>
-            <svg
+            <svg //서울시, 행정구 모양 따른 svg, 행정구명
                 height="492"
                 width="600"
                 xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +41,7 @@ const Seoul = (props) => {
             >
                 <g
                     onClick={(e) => {
+                        //클릭 시 해당 행정구 정보 Air.js에 전달.
                         props.setCoordData(coord[0]);
                     }}
                 >

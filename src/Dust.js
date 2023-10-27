@@ -1,7 +1,9 @@
 import React from "react";
 
 function Grade({ grade }) {
-    switch (grade) {
+    switch (
+        grade //받은 정보에 따라 상태를 알려줌
+    ) {
         case "1":
             return <b style={{ color: "blue" }}>좋음!</b>;
         case "2":
@@ -16,12 +18,12 @@ function Grade({ grade }) {
 }
 
 function Mask({ mask }) {
-    switch (mask) {
+    switch (
+        mask //받은 정보에 따라 상태를 알려줌
+    ) {
         case "1":
-            // return <div className="value dust mask tail">좋음!</div>;
             return null;
         case "2":
-            // return <div className="value dust mask tail">보통</div>;
             return null;
         case "3":
             return (
